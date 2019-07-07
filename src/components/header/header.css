@@ -10,18 +10,26 @@
     border-radius: 3px;
 }
 
+.header ul li button{
+    color: #00bc8c;
+    background: transparent;
+    border: none;
+}
+
 .header ul li:hover{
     background: #444;
 }
 
-.header a:hover{
+.header button:hover{
     text-decoration: none;
 }
 
-.header h3 a{
+.header h3 button{
     color: #fff;
+    background: transparent;
+    border: none;
 }
 
-.header h3 a:hover{
+.header h3 button:hover{
     color: #00bc8c;
 }

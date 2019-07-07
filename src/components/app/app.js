@@ -1,17 +1,13 @@
 import React from 'react';
 
-import Header from './header';
-import RandomPlanet from './random-planet';
-import ItemList from './item-list';
-import PersonDetails from './person-details';
+import Header from '../header';
+import RandomPlanet from '../random-planet';
+import ItemList from '../item-list';
+import PersonDetails from '../person-details';
 
 import './app.css';
 
 class App extends React.Component {
-    constructor() {
-        super();
-    }
-
     render() {
         return (
             <div>
@@ -21,7 +17,7 @@ class App extends React.Component {
                     <div className="col-md-5">
                         <ItemList />
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-7">
                         <PersonDetails />
                     </div>
                 </div>
