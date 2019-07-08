@@ -2,7 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  
 The main purpose of this application is to learn React.js.  
-Check the demo:     
+Check the demo:  
+
+## Studied  
+* Higher order components. 
+* Component life cycles.  
+* React-router.  
 
 ## Functionality  
 * Page navigation (each page has its own list of items)  
