@@ -4,6 +4,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 The main purpose of this application is to learn React.js.  
 Check the demo:     
 
+## Functionality  
+* Page navigation (each page has its own list of items)  
+* Click on an item to display detailed information on a new page or on the current page.  
+* The Login function, if not authorized, cancels the login from the secret page.  
+* After the login throws home.  
+* Shows a random planet and updates every 10 seconds.  
+
 ## Instructions
 
 First clone this repository.    
