@@ -15,7 +15,9 @@ class RandomPlanet extends React.Component {
             loading: true,
             error: false
         };
-        this.updatePlanet();
+        
+        this.updatePlanet = this.updatePlanet.bind(this);
+        setInterval(this.updatePlanet,1000);
     }
 
     onError(error) {
@@ -33,7 +35,8 @@ class RandomPlanet extends React.Component {
     }
 
     updatePlanet() {
-        const id = Math.floor(Math.random() * 18) + 2;
+        let id = Math.floor(Math.random() * 18) + 2;
+        id = id === 3 ?  ++id : id;
         this.swapiService.getPlanet(id)
             .then((planet) => this.onPlanetLoaded(planet))
             .catch((error) => this.onError(error));
@@ -44,7 +47,7 @@ class RandomPlanet extends React.Component {
 
         return (
             <div className="random-planet  jumbotron rounded">
-                {error ? <ErrorIndicator /> : 
+                {error ? <ErrorIndicator /> :
                     loading ? <Spinner /> : <PlanetView planet={planet} />}
             </div>
         );
