@@ -8,6 +8,21 @@ import PersonDetails from '../person-details';
 import './app.css';
 
 class App extends React.Component {
+    constructor() {
+        super();
+
+        this.state = {
+            selectedPerson: null
+        };
+        this.onPersonSelected = this.onPersonSelected.bind(this);
+    }
+
+    onPersonSelected(id) {
+        this.setState({
+            selectedPerson: id
+        });
+    }
+
     render() {
         return (
             <div>
@@ -15,10 +30,10 @@ class App extends React.Component {
                 <RandomPlanet />
                 <div className="row mb2">
                     <div className="col-md-5">
-                        <ItemList />
+                        <ItemList onItemSelected={this.onPersonSelected} />
                     </div>
                     <div className="col-md-7">
-                        <PersonDetails />
+                        <PersonDetails personId={this.state.selectedPerson} />
                     </div>
                 </div>
             </div>

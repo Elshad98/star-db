@@ -20,7 +20,7 @@ class RandomPlanet extends React.Component {
     }
 
     componentDidMount() {
-        this.interval = setInterval(this.updatePlanet, 1000);
+        this.interval = setInterval(this.updatePlanet, 5000);
     }
 
     onError(error) {
@@ -39,6 +39,7 @@ class RandomPlanet extends React.Component {
 
     updatePlanet() {
         let id = Math.floor(Math.random() * 18) + 2;
+        id = id === 3 ? ++id : id;
         this.swapiService.getPlanet(id)
             .then((planet) => this.onPlanetLoaded(planet))
             .catch((error) => this.onError(error));

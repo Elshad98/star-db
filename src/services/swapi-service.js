@@ -1,6 +1,10 @@
 class SwapiService {
     constructor() {
         this._apiBase = 'https://swapi.co/api';
+
+        this._transformPerson = this._transformPerson.bind(this);
+        this._transformPlanet = this._transformPlanet.bind(this);
+        this._transformStarship = this._transformStarship.bind(this);
     }
 
     async getResource(url) {
@@ -12,7 +16,7 @@ class SwapiService {
     }
 
     async getAllPeople() {
-        const res = await this.getResource('/people/');
+        const res = await this.getResource(`/people/`);
         return res.results.map(this._transformPerson);
     }
 
