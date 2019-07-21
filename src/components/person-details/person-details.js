@@ -41,6 +41,7 @@ class PersonDetails extends React.Component {
 
     render() {
         const { person, loading } = this.state;
+        
         return (
             <div className="person-details card">
                 {loading ? <Spinner /> : <PersonView person={person} />}
@@ -51,7 +52,7 @@ class PersonDetails extends React.Component {
 
 const PersonView = (props) => {
     const { id, name, gender, birthYear, eyeColor } = props.person;
-
+    
     return (
         <React.Fragment>
             <img className="person-image" src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} alt="" />
@@ -59,15 +60,15 @@ const PersonView = (props) => {
                 <h4>{name}</h4>
                 <ul className="list-group list-group-flush">
                     <li className="list-group-item">
-                        <span className="term">Gender</span>
+                        <span className="term">Gender:</span>
                         <span>{gender}</span>
                     </li>
                     <li className="list-group-item">
-                        <span className="term">Birth Year</span>
+                        <span className="term">Birth Year:</span>
                         <span>{birthYear}</span>
                     </li>
                     <li className="list-group-item">
-                        <span className="term">Eye color</span>
+                        <span className="term">Eye color:</span>
                         <span>{eyeColor}</span>
                     </li>
                 </ul>

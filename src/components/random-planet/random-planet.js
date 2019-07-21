@@ -73,15 +73,15 @@ const PlanetView = ({ planet }) => {
                 <h4>{name}</h4>
                 <ul className="list-group list-group-flush">
                     <li className="list-group-item">
-                        <span className="term">Population</span>
+                        <span className="term">Population:</span>
                         <span>{population}</span>
                     </li>
                     <li className="list-group-item">
-                        <span className="term">Rotation period</span>
+                        <span className="term">Rotation period:</span>
                         <span>{rotationPeriod}</span>
                     </li>
                     <li className="list-group-item">
-                        <span className="term">Deameter</span>
+                        <span className="term">Deameter:</span>
                         <span>{diameter}</span>
                     </li>
                 </ul>

@@ -12,7 +12,7 @@ class App extends React.Component {
         super();
 
         this.state = {
-            selectedPerson: 5
+            selectedPerson: Math.floor(Math.random() * 10) + 1
         };
         this.onPersonSelected = this.onPersonSelected.bind(this);
     }
