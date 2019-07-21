@@ -12,7 +12,6 @@ class ItemList extends React.Component {
         this.state = {
             peopleList: null
         };
-        // this.renderItems = this.renderItems.bind(this);
     }
 
     componentDidMount() {

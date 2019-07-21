@@ -12,7 +12,7 @@ class App extends React.Component {
         super();
 
         this.state = {
-            selectedPerson: null
+            selectedPerson: 5
         };
         this.onPersonSelected = this.onPersonSelected.bind(this);
     }
