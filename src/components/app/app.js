@@ -29,7 +29,7 @@ class App extends React.Component {
                 <Header />
                 <RandomPlanet />
                 <div className="row mb2">
-                    <div className="col-md-5">
+                    <div className="col-md-5 items">
                         <ItemList onItemSelected={this.onPersonSelected} />
                     </div>
                     <div className="col-md-7">
