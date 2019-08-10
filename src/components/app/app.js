@@ -4,6 +4,7 @@ import Header from '../header';
 import RandomPlanet from '../random-planet';
 import ItemList from '../item-list';
 import PersonDetails from '../person-details';
+import ErrorIndicator from '../error-indicator';
 
 import './app.css';
 
@@ -12,7 +13,8 @@ class App extends React.Component {
         super();
 
         this.state = {
-            selectedPerson: Math.floor(Math.random() * 10) + 1
+            selectedPerson: Math.floor(Math.random() * 10) + 1,
+            hasError: false
         };
         this.onPersonSelected = this.onPersonSelected.bind(this);
     }
@@ -23,7 +25,16 @@ class App extends React.Component {
         });
     }
 
+    componentDidCatch() {
+        console.log('componentDidCatch');
+        this.setState({
+            hasError: true
+        });
+    }
+
     render() {
+        if (this.state.hasError) { return <ErrorIndicator /> }
+
         return (
             <div>
                 <Header />
