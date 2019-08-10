@@ -14,7 +14,7 @@ class ItemList extends React.Component {
 
     componentDidMount() {
         const { getData } = this.props;
-        console.log(getData);
+        
         getData()
             .then((itelList) => {
                 this.setState({
@@ -24,12 +24,15 @@ class ItemList extends React.Component {
     }
 
     renderItems(arr) {
-        return arr.map(({ id, name }) => {
+        return arr.map((item) => {
+            const { id } = item;
+            const label = this.props.renderItem(item);
+
             return (
                 <li className="list-group-item"
                     key={id}
                     onClick={() => { this.props.onItemSelected(id) }}>
-                    {name}
+                    {label}
                 </li>
             );
         });

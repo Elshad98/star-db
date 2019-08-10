@@ -41,11 +41,13 @@ class App extends React.Component {
             <div>
                 <Header />
                 <RandomPlanet />
+                <PeoplePage />
                 <div className="row mb2">
                     <div className="col-md-5 items">
                         <ItemList
                             onItemSelected={this.onPersonSelected}
                             getData={this.swapiService.getAllPlanet}
+                            renderItem={(item) => <span>{item.name} <button>!</button></span>}
                         />
                     </div>
                     <div className="col-md-7">
@@ -57,13 +59,13 @@ class App extends React.Component {
                         <ItemList
                             onItemSelected={this.onPersonSelected}
                             getData={this.swapiService.getAllStarships}
+                            renderItem={(item) => item.name}
                         />
                     </div>
                     <div className="col-md-7">
                         <PersonDetails personId={this.state.selectedPerson} />
                     </div>
                 </div>
-                <PeoplePage />
             </div>
         );
     }
