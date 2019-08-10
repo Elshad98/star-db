@@ -2,8 +2,6 @@ import React from 'react';
 
 import Header from '../header';
 import RandomPlanet from '../random-planet';
-import ItemList from '../item-list';
-import PersonDetails from '../person-details';
 import ErrorIndicator from '../error-indicator';
 import PeoplePage from '../people-page';
 import swapiService from '../../services/swapi-service';
@@ -42,30 +40,6 @@ class App extends React.Component {
                 <Header />
                 <RandomPlanet />
                 <PeoplePage />
-                <div className="row mb2">
-                    <div className="col-md-5 items">
-                        <ItemList
-                            onItemSelected={this.onPersonSelected}
-                            getData={this.swapiService.getAllPlanet}
-                            renderItem={(item) => <span>{item.name} <button>!</button></span>}
-                        />
-                    </div>
-                    <div className="col-md-7">
-                        <PersonDetails personId={this.state.selectedPerson} />
-                    </div>
-                </div>
-                <div className="row mb2">
-                    <div className="col-md-5 items">
-                        <ItemList
-                            onItemSelected={this.onPersonSelected}
-                            getData={this.swapiService.getAllStarships}
-                            renderItem={(item) => item.name}
-                        />
-                    </div>
-                    <div className="col-md-7">
-                        <PersonDetails personId={this.state.selectedPerson} />
-                    </div>
-                </div>
             </div>
         );
     }
