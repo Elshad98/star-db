@@ -2,21 +2,22 @@ import React from 'react';
 import SwapiService from '../../services/swapi-service';
 import Spinner from '../spinner';
 
-import './person-details.css';
+import './item-details.css';
 
-class PersonDetails extends React.Component {
+class ItemDetails extends React.Component {
     constructor() {
         super();
 
         this.swapiService = new SwapiService();
         this.state = {
-            person: null,
-            loading: true
+            item: null,
+            loading: true,
+            image: null
         };
     }
 
     componentDidMount() {
-        this.updatePerson();
+        this.updateItem();
     }
 
     componentDidUpdate(prevProps) {
@@ -25,37 +26,38 @@ class PersonDetails extends React.Component {
         }
     }
 
-    updatePerson() {
-        const { personId } = this.props;
-        if (!personId) {
+    updateItem() {
+        const { itemId, getData, getImageUrl } = this.props;
+        if (!itemId) {
             return;
         }
-        this.swapiService.getPerson(personId)
-            .then((person) => {
+        getData(itemId)
+            .then((item) => {
                 this.setState({
-                    person: person,
-                    loading: false
+                    item: item,
+                    loading: false,
+                    image: getImageUrl(item)
                 });
             });
     }
 
     render() {
-        const { person, loading } = this.state;
-        
+        const { item, loading, image } = this.state;
+
         return (
-            <div className="person-details card">
-                {loading ? <Spinner /> : <PersonView person={person} />}
+            <div className="item-details card">
+                {loading ? <Spinner /> : <ItemView item={item} iamge={image} />}
             </div >
         );
     }
 }
 
-const PersonView = (props) => {
-    const { id, name, gender, birthYear, eyeColor } = props.person;
-    
+const ItemView = (props) => {
+    const { id, name, gender, birthYear, eyeColor } = props.item;
+
     return (
         <React.Fragment>
-            <img className="person-image" src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} alt="" />
+            <img className="item-image" src={props.iamge} alt="" />
             <div className="card-body">
                 <h4>{name}</h4>
                 <ul className="list-group list-group-flush">
@@ -77,4 +79,4 @@ const PersonView = (props) => {
     );
 }
 
-export default PersonDetails;
+export default ItemDetails;

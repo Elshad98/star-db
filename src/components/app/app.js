@@ -5,6 +5,8 @@ import RandomPlanet from '../random-planet';
 import ErrorIndicator from '../error-indicator';
 import PeoplePage from '../people-page';
 import swapiService from '../../services/swapi-service';
+import Row from '../row';
+import ItemDetails from '../item-details';
 
 import './app.css';
 
@@ -35,11 +37,28 @@ class App extends React.Component {
     render() {
         if (this.state.hasError) { return <ErrorIndicator /> }
 
+        const { getPerson, getStarship, getPersonImage, getStarshipImage } = this.swapiService;
+
+        const personDetails = (
+            <ItemDetails
+                itemId={11}
+                getData={getPerson}
+                getImageUrl={getPersonImage} />
+        );
+
+        const StarshipDetailt = (
+            <ItemDetails
+                itemId={5}
+                getData={getStarship}
+                getImageUrl={getStarshipImage} />
+        );
+
         return (
             <div>
                 <Header />
-                <RandomPlanet />
-                <PeoplePage />
+                {/* <RandomPlanet /> */}
+                <Row left={personDetails} right={StarshipDetailt} />
+                {/* <PeoplePage /> */}
             </div>
         );
     }
