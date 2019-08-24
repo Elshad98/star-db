@@ -6,7 +6,7 @@ import ErrorIndicator from '../error-indicator';
 import PeoplePage from '../people-page';
 import swapiService from '../../services/swapi-service';
 import Row from '../row';
-import ItemDetails from '../item-details';
+import ItemDetails, { Record } from '../item-details';
 
 import './app.css';
 
@@ -43,7 +43,11 @@ class App extends React.Component {
             <ItemDetails
                 itemId={11}
                 getData={getPerson}
-                getImageUrl={getPersonImage} />
+                getImageUrl={getPersonImage} >
+
+                <Record field="gender" label="Gender" />
+                <Record field="eyeColor" label="Eye Color" />
+            </ItemDetails>
         );
 
         const StarshipDetailt = (
