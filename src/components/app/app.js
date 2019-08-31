@@ -9,6 +9,7 @@ import Row from '../row';
 import ItemDetails, { Record } from '../item-details';
 
 import './app.css';
+import ErrorBoundary from '../error-boundary';
 
 class App extends React.Component {
     constructor() {
@@ -56,19 +57,21 @@ class App extends React.Component {
                 getData={getStarship}
                 getImageUrl={getStarshipImage} >
 
-                <Record field="model" label="Model" />   
-                <Record field="length" label="Length" />   
-                <Record field="costInCredits" label="Cost" />   
+                <Record field="model" label="Model" />
+                <Record field="length" label="Length" />
+                <Record field="costInCredits" label="Cost" />
             </ItemDetails>
         );
 
         return (
-            <div>
-                <Header />
-                {/* <RandomPlanet /> */}
-                <Row left={personDetails} right={StarshipDetailt} />
-                {/* <PeoplePage /> */}
-            </div>
+            <ErrorBoundary>
+                <div>
+                    <Header />
+                    {/* <RandomPlanet /> */}
+                    {/* </Item><Row left={personDetails} right={StarshipDetailt} /> */}
+                    <PeoplePage />
+                </div>
+            </ErrorBoundary>
         );
     }
 }
