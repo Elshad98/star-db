@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ErrorBoundary from '../error-boundary';
-import withData from '../item-list';
+import ItemList from '../item-list';
 import ItemDetails from '../item-details';
 import Row from '../row';
 
@@ -28,11 +28,11 @@ class PeoplePage extends React.Component {
 
     render() {
         const itemList = (
-            <withData
+            <ItemList
                 onItemSelected={this.onPersonSelected}
                 getData={this.swapiService.getAllPeople}>
                 {(i) => `${i.name} (${i.birthYear})`}
-            </withData>
+            </ItemList>
         );
 
         const personDetails = (

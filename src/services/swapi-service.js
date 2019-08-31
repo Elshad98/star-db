@@ -20,7 +20,7 @@ class SwapiService {
         return res.results.map(this._transformStarship);
     }
 
-    getAllPlanet = async () => {
+    getAllPlanets = async () => {
         const res = await this.getResource('/planets/');
         return res.results.map(this._transformPlanet);
     }
