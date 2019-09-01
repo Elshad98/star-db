@@ -9,6 +9,8 @@ import Row from '../row';
 import ItemDetails, { Record } from '../item-details';
 import ErrorBoundary from '../error-boundary';
 
+import { SwapiServiceProvider } from '../swapi-service-context';
+
 import {
     PersonDetails,
     PlanetDetails,
@@ -49,20 +51,22 @@ class App extends React.Component {
 
         return (
             <ErrorBoundary>
-                <div>
-                    <Header />
-                    <PersonDetails itemId={11} />
+                <SwapiServiceProvider value={this.swapiService}>
+                    <div>
+                        <Header />
+                        <PersonDetails itemId={11} />
 
-                    <PlanetDetails itemId={5} />
+                        <PlanetDetails itemId={5} />
 
-                    <StarShipDetails itemId={9} />
+                        <StarShipDetails itemId={9} />
 
-                    <PersonList/>
+                        <PersonList />
 
-                    <StarShipList/>
+                        <StarShipList />
 
-                    <PlanetList/>
-                </div>
+                        <PlanetList />
+                    </div>
+                </SwapiServiceProvider>
             </ErrorBoundary>
         );
     }
