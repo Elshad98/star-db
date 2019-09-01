@@ -5,7 +5,6 @@ import Spinner from '../spinner';
 import './item-details.css';
 
 const Record = ({ item, field, label }) => {
-    console.log(item);
     return (
         <li className="list-group-item">
             <span className="term">{label}:</span>

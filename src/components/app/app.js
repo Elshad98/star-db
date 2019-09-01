@@ -57,17 +57,11 @@ class App extends React.Component {
 
                     <StarShipDetails itemId={9} />
 
-                    <PersonList>
-                        {({ name }) => <span>{name}</span>}
-                    </PersonList>
+                    <PersonList/>
 
-                    <StarShipList>
-                        {({ name }) => <span>{name}</span>}
-                    </StarShipList>
+                    <StarShipList/>
 
-                    <PlanetList>
-                        {({ name }) => <span>{name}</span>}
-                    </PlanetList>
+                    <PlanetList/>
                 </div>
             </ErrorBoundary>
         );
