@@ -14,10 +14,10 @@ import { SwapiServiceProvider } from '../swapi-service-context';
 import {
     PersonDetails,
     PlanetDetails,
-    StarShipDetails,
+    StarshipDetails,
     PersonList,
     PlanetList,
-    StarShipList
+    StarshipList
 } from '../sw-components';
 
 import './app.css';
@@ -58,11 +58,11 @@ class App extends React.Component {
 
                         <PlanetDetails itemId={5} />
 
-                        <StarShipDetails itemId={9} />
+                        <StarshipDetails itemId={9} />
 
                         <PersonList />
 
-                        <StarShipList />
+                        <StarshipList />
 
                         <PlanetList />
                     </div>

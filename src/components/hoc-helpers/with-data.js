@@ -1,9 +1,8 @@
 import React from 'react';
 
 import Spiner from '../spinner';
-import ErrorIndicator from '../error-indicator';
 
-const withData = (View, getData) => {
+const withData = (View) => {
     return class extends React.Component {
         constructor() {
             super();
@@ -14,7 +13,7 @@ const withData = (View, getData) => {
         }
 
         componentDidMount() {
-            getData()
+            this.props.getData()
                 .then((data) => {
                     this.setState({
                         data: data
