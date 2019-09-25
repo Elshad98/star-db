@@ -4,7 +4,8 @@ import Header from '../header';
 import RandomPlanet from '../random-planet';
 import ErrorIndicator from '../error-indicator';
 import PeoplePage from '../people-page';
-import swapiService from '../../services/swapi-service';
+import SwapiService from '../../services/swapi-service';
+import DummySwapiService from '../../services/dummy-swapi-service';
 import Row from '../row';
 import ItemDetails, { Record } from '../item-details';
 import ErrorBoundary from '../error-boundary';
@@ -26,12 +27,23 @@ class App extends React.Component {
     constructor() {
         super();
 
-        this.swapiService = new swapiService();
         this.state = {
             selectedPerson: Math.floor(Math.random() * 10) + 1,
-            hasError: false
+            hasError: false,
+            swapiService: new DummySwapiService()
         };
         this.onPersonSelected = this.onPersonSelected.bind(this);
+        this.onServiceChange = this.onServiceChange.bind(this);
+    }
+
+    onServiceChange() {
+        this.setState(({ swapiService }) => {
+            const Service = swapiService instanceof SwapiService ? DummySwapiService : SwapiService;
+
+            return {
+                swapiService: new Service()
+            }
+        });
     }
 
     onPersonSelected(id) {
@@ -51,9 +63,9 @@ class App extends React.Component {
 
         return (
             <ErrorBoundary>
-                <SwapiServiceProvider value={this.swapiService}>
+                <SwapiServiceProvider value={this.state.swapiService}>
                     <div>
-                        <Header />
+                        <Header onServiceChange={this.onServiceChange} />
                         <PersonDetails itemId={11} />
 
                         <PlanetDetails itemId={5} />

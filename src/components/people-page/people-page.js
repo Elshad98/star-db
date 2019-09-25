@@ -5,7 +5,7 @@ import ItemList from '../item-list';
 import ItemDetails from '../item-details';
 import Row from '../row';
 
-import swapiService from '../../services/swapi-service';
+import SwapiService from '../../services/swapi-service';
 
 import './people-page.js';
 
@@ -13,7 +13,7 @@ class PeoplePage extends React.Component {
     constructor() {
         super();
 
-        this.swapiService = new swapiService();
+        this.swapiService = new SwapiService();
         this.state = {
             selectedPerson: Math.floor(Math.random() * 10) + 1
         }

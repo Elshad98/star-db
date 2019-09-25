@@ -1,5 +1,4 @@
 import React from 'react';
-import SwapiService from '../../services/swapi-service';
 import Spinner from '../spinner';
 
 import './item-details.css';
@@ -19,7 +18,6 @@ class ItemDetails extends React.Component {
     constructor() {
         super();
 
-        this.swapiService = new SwapiService();
         this.state = {
             item: null,
             loading: true,
@@ -32,8 +30,11 @@ class ItemDetails extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.personId !== prevProps.personId) {
-            this.updatePerson();
+        if (this.props.itemId !== prevProps.itemId ||
+            this.props.getData !== prevProps.getData ||
+            this.props.getImageUrl !== prevProps.getImageUrl) {
+            console.log(this.updatePerson);
+            this.updateItem();
         }
     }
 
