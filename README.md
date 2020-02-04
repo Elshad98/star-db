@@ -7,7 +7,7 @@ Check the demo:
 ## Studied  
 * Higher order components. 
 * Component life cycles.  
-* React-router.  
+* React-router.   
 
 ## Functionality  
 * Page navigation (each page has its own list of items)  
