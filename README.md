@@ -1,7 +1,7 @@
 # Star DB
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  
-The main purpose of this application is to learn React.js.  
+The main purpose of this application is to learn React.js.   
 Check the demo:  
 
 ## Studied  
