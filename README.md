@@ -22,6 +22,10 @@ First clone this repository.
 ```
 $ git clone https://github.com/Elshad98/star-db.git
 ```  
+Then go to the folder
+```
+$ cd star-db
+```
 Install dependencies. Make sure you already have nodejs & npm installed in your system.  
 ```
 $ npm install
